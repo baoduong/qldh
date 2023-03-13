@@ -33,7 +33,9 @@ exports.handler = async (event) => {
 
 
         const xpathSelector = "//div[@aria-label[contains(., 'a few seconds ago')]][last()]";
-        await page.waitForXPath(xpathSelector);
+        await page.waitForXPath(xpathSelector, {
+            timeout: 10000
+        });
         const elementComments = await page.$x(xpathSelector);
         console.log('List of comment within 1 minute: ', elementComments.length);
 
