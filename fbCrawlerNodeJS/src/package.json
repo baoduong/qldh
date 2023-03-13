@@ -1,0 +1,18 @@
+{
+  "name": "fbcrawlernodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js --ignore tests",
+    "build": "NPM_CONFIG_PRODUCTION=true npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "Base64": "^1.2.0",
+    "puppeteer": "^19.7.2"
+  }
+}

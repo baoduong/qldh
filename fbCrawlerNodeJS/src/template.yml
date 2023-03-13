@@ -1,0 +1,23 @@
+Resources:
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: index.handler
+      Runtime: nodejs14.x
+      Layers:
+        chromium_layer:
+          Type: AWS::Serverless::LayerVersion
+          Properties:
+            LayerVersionArn: arn:aws:lambda:ap-southeast-1:233544121032:layer:chromium_layer:3
+            CompatibleRuntimes:
+              - nodejs14.x
+            Description: My layer description
+      Timeout: 30
+      MemorySize: 512
+      Events:
+        MyApi:
+          Type: Api
+          Properties:
+            Path: /my-api
+            Method: GET
